@@ -28,9 +28,17 @@ export async function getSocials(): Promise<Social[]>{
         }`
     )
 }
-export async function getHeroImage(): Promise<PageInfo[]>{
+export async function getPageInfo(): Promise<PageInfo[]>{
     return createClient(clientConfig).fetch(
         groq`*[_type == 'pageInfo']{
+            _id,
+            _createdAt,
+            _Type,
+            name,
+            slug,
+            profession,
+            url,
+            backgroundInformation,
             profilePicture
         }`
     )

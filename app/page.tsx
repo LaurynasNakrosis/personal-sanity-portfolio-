@@ -1,8 +1,8 @@
+import About from "@/components/About";
+import AboutInfo from "@/components/AboutInfo";
 import Header from "@/components/Header";
 import HeaderSocials from "@/components/HeaderSocials";
 import Hero from "@/components/Hero";
-import HeroImage from "@/components/HeroImge";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -15,6 +15,13 @@ export default function Home() {
       {/* Hero */}
         <section id="hero" className='snap-center'>
           <Hero />
+        </section>
+
+      {/* About */}
+        <section id='about' className='snap-center'>
+          <About>
+            <AboutInfo/>
+          </About>
         </section>  
 
     </div>

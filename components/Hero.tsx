@@ -5,7 +5,7 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles';
 import Link from 'next/link';
 import Image from 'next/image';
-import graduation from '../pictures/graduation.jpg'
+import hero from '../pictures/hero.jpg'
 
 type Props = {}
 
@@ -25,7 +25,7 @@ export default function Hero() {
 
         <Image 
           className="  h-20 w-20 sm:h-32 sm:w-32 md:h-40 md:w-40  rounded-full mx-auto  my-auto  object-cover "
-          src={graduation}
+          src={hero}
           alt='Picture of the author'
           priority 
         /> 
