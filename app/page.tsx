@@ -1,10 +1,13 @@
 import About from "@/components/About";
-import AboutInfo from "@/components/AboutInfo";
 import Header from "@/components/Header";
 import HeaderSocials from "@/components/HeaderSocials";
 import Hero from "@/components/Hero";
+import { getPageInfo } from "@/sanity/sanity-utils";
 
-export default function Home() {
+
+export default async function Home() {
+  const information = await getPageInfo();
+  //console.log(information)
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen w-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0  scrollbar-track--gray-400/20 scrollbar-thumb-[#f7ab0a]/80 " >
       {/* Header */}
@@ -19,9 +22,14 @@ export default function Home() {
 
       {/* About */}
         <section id='about' className='snap-center'>
-          <About>
-            <AboutInfo/>
-          </About>
+          {information.map((data) => (
+              <About 
+                key={data._id}
+                backgroundInformation={data.backgroundInformation}
+                profilePicture={data.images[0].url}
+                slug={data.slug}
+              />
+          ))}
         </section>  
 
     </div>

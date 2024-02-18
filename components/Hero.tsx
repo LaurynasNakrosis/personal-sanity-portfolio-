@@ -10,18 +10,18 @@ import hero from '../pictures/hero.jpg'
 type Props = {}
 
 export default function Hero() {
-  // const [text,count] = useTypewriter({
-  //   words: ["Hi, The Name's Laurynas Nakrosis","Guy-who-loves-Coffee.tsx", "<ButLovesToCodeMore />"],
-  //   loop: true,
-  //   delaySpeed: 3000,
-  // })
+  const [text,count] = useTypewriter({
+    words: ["Hi, The Name's Laurynas Nakrosis","Guy-who-loves-Coffee.tsx", "<ButLovesToCodeMore />"],
+    loop: true,
+    delaySpeed: 3000,
+  })
   
   return (
   <div className= 'h-screen flex flex-col space-y-[33px] items-center justify-center text-center overflow-hidden'>
 
           <BackgroundCircles/>
 
-        <div className=' w-full  sm:pt-6' >
+        <div className=' w-full  sm:pt-6'>
 
         <Image 
           className="  h-20 w-20 sm:h-32 sm:w-32 md:h-40 md:w-40  rounded-full mx-auto  my-auto  object-cover "
@@ -36,7 +36,7 @@ export default function Hero() {
         </h2>
 
         <h1 className='font-semibold px-10 text-xs md:text-4xl lg:text-5xl py-1'>
-          {/* <span className='mr-3'>{text}</span> */}
+          <span className='mr-3'>{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
 

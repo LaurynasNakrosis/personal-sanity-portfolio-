@@ -15,40 +15,25 @@ const pageInfo = {
             options: {source: 'name'}
         },
         {
-            name: 'profession',
-            title: 'Profession',
-            type: 'string',
+            name: 'images',
+            type: 'array',
+            options: {hotspot: true},
+            of:[
+                {
+                    type: 'object',
+                    fields: [
+                        { name:'url', type: 'url', title: 'URL' },
+                        { name:'file', type: 'file', title: 'File' },
+                    ],
+                    validation: (Rule: any) => Rule.required(),
+                },
+            ],
         },
-        {
-            name: 'url',
-            title: 'Url',
-            type: 'url',
-        },
-        // {
-        //     name: 'image',
-        //     title: 'Image',
-        //     type: 'image',
-        //     options: {hotspot: true},
-        //     fields: [
-        //         {
-        //             name:'alt',
-        //             title: 'Alt',
-        //             type: 'string'
-        //         }
-        //     ]
-        // },
         {
             name: 'backgroundInformation',
             title: 'Background Information',
             type: 'text',
         },
-        {
-            name: 'profilePicture',
-            title: 'Profile Picture',
-            type: 'image',
-            options: {hotspot: true},
-        },
-
     ]
 }
 

@@ -36,10 +36,8 @@ export async function getPageInfo(): Promise<PageInfo[]>{
             _Type,
             name,
             slug,
-            profession,
-            url,
             backgroundInformation,
-            profilePicture
+            images
         }`
     )
 }
