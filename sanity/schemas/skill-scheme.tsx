@@ -1,4 +1,4 @@
-const project = {
+const skill = {
     name: 'skill',
     title: 'Skill',
     type: 'document',
@@ -33,4 +33,4 @@ const project = {
     ]
 }
 
-export default project;
+export default skill;

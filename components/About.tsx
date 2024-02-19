@@ -12,7 +12,6 @@ interface AboutProps {
 
  const AboutContent: FC<AboutProps> = (props) => {
     const {backgroundInformation, profilePicture, slug } = props;
-    console.log(profilePic)
     return( 
     <div>
       <motion.div 

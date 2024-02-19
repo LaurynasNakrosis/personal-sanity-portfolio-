@@ -1,4 +1,4 @@
-const project = {
+const experience = {
     name: 'experience',
     title: 'Experience',
     type: 'document',
@@ -43,18 +43,19 @@ const project = {
             type: 'boolean',
         },
         {
-            name: 'technologies',
-            title: 'Technologies',
-            type: 'array',
-            of: [{type: "reference", to: {type: "skill"}}],
-        },
-        {
             name: 'points',
             title: 'Points',
             type: 'array',
             of: [{type: "string"}],
         },
+        {
+            name: 'technologies',
+            title: 'Technologies',
+            type: 'array',
+            of: [{type: "reference", to: {type: "skill"}}],
+        },
+        
     ]
 }
 
-export default project;
+export default experience;

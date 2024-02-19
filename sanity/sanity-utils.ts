@@ -4,6 +4,9 @@ import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 import { Social } from "@/types/Social";
 import { PageInfo } from "@/types/PageInfo";
+import { Experience } from "@/types/Experience";
+import { Skill } from "@/types/Skill";
+
 
 export async function getProjects(): Promise<Project[]>{
     return createClient(clientConfig).fetch(
@@ -38,6 +41,21 @@ export async function getPageInfo(): Promise<PageInfo[]>{
             slug,
             backgroundInformation,
             images
+        }`
+    )
+}
+export async function getExperience(): Promise<Experience[]>{
+    return createClient(clientConfig).fetch(
+        groq`*[_type == 'experience']{
+            ...,
+            skill[]->
+        }`
+    )
+}
+export async function getSkill(): Promise<Skill[]>{
+    return createClient(clientConfig).fetch(
+        groq`*[_type == 'skill']{
+            ...,
         }`
     )
 }
