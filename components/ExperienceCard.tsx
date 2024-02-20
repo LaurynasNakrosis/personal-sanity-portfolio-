@@ -1,93 +1,100 @@
-/* eslint-disable @next/next/no-img-element */
-// Import necessary libraries and components
-"use client"
+"use client";
 
-import React, { FC } from 'react';
-import { urlFor } from "../sanity/config/client-config"
-import { Image } from 'sanity';
+// Importing necessary libraries and components
+import React from 'react';
+import { urlFor } from "../app/admin/[[...index]]/page";
 import { motion } from 'framer-motion';
+import { Experience } from '@/types/Experience';
+import Image from 'next/image';
 
-interface ExperienceProps {
-    jobTitle: string;
-    company: string;
-    //companyImage: Image;
-    dateStarted: string;
-    dateEnded: string;
-    technologies: string;
+// Defining Props type for the ExperienceCard component
+type Props = {
+    experience: Experience; // Expects an Experience object as prop
 };
 
 // Define the ExperienceCard component
-const ExperienceCard: FC<ExperienceProps> = (props) => {
-    const {jobTitle,company,dateStarted,dateEnded} = props;
-  return (
-    // Article container for the experience card
-    <article className='bg-[#2f2f2f] flex flex-col items-center  flex-shrink-0 rounded-lg  space-y-0  
-    h-[420px] pt-5 pb-2 w-[320px] ml-10 -mr-7
-    sm:border-black sm:h-full sm:w-[600px] sm:ml-[200px] sm:m-0 
-    md:border-blue-600 md:w-[600px]
+export default function ExperienceCard({ experience }: Props) {
+    console.log(experience); // Logging experience object to console for debugging
+    return (
+        // Article container for the experience card
+        <article className='bg-[#2f2f2f] flex flex-col items-center  flex-shrink-0 rounded-lg  space-y-0  
+        h-[420px] pt-5 pb-2 w-[320px] ml-10 -mr-7
+        sm:border-black sm:h-full sm:w-[600px] sm:ml-[200px] sm:m-0 
+        md:border-blue-600 md:w-[600px]
 
-    snap-center hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
+        snap-center hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
+            {/* Display company image if available */}
+            {experience.companyImage && (
+                <motion.img 
+                    initial={{
+                        y: -100, 
+                        opacity: 0,
+                    }}
+                    transition={{ duration: 1.2 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    //viewport={{ once: true }}
+                    className=' rounded-full p-2
+                    h-[85px] w-[85px] 
+                    sm:h-[120px] sm:w-[120px]
+                    md:h-[140px] md:w-[140px]  
+                    xl:w-[150px] xl:h-[150px] 
+                    object-cover object-center'
+                    src={urlFor(experience?.companyImage).url()} // Constructing URL for the image
+                    alt=''
+                /> 
+            )}
 
-      {/* <ExperienceCardAssetsIcon/> */}
-      {/* <motion.img 
-      initial={{
-        y: -100, 
-        opacity: 0,
-      }}
-      transition={{ duration: 1.2 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      //viewport={{ once: true }}
-      className=' rounded-full p-2
-      h-[85px] w-[85px] 
-      sm:h-[120px] sm:w-[120px]
-      md:h-[140px] md:w-[140px]  
-      xl:w-[150px] xl:h-[150px] 
-      object-cover object-center'
-      src={urlFor(companyImage).url()}
-      alt=''
-    /> */}
+            {/* Container for experience details */}
+            <div className='  px-0 md:px-10 flex flex-col space-y-2  '>
+                {/* Display job title */}
+                <h4 className=' 
+                text-[18px]
+                sm:text-[35px] sm:tracking-auto
+                xl:text-5xl 
+                font-light'>{experience.company}</h4>
+                
+                {/* Display company name */}
+                <p className=' font-bold text-[12px] sm:text-[16px]'>{experience.jobTitle}</p>
+                
+                {/* Display logos */}
+                <div className=' flex space-x-2 my-2'>
+                    {/* Mapping over technologies array to display technology images */}
+                    {experience.technologies.map((technology) => (
+                        <div key={technology._id}>
+                            {technology.image && (
+                                <Image
+                                    src={urlFor(technology?.image)?.url()} // Constructing URL for the image
+                                    alt={technology.slug}
+                                    width={10}
+                                    height={10}
+                                    className=' w-10 h-10 rounded-full'
+                                />
+                            )}
+                        </div>
+                    ))}
+                </div>
 
-      <div className='  px-0 md:px-10 flex flex-col space-y-2  '>
-        {/* Display job title */}
-        <h4 className=' 
-        text-[18px]
-        sm:text-[35px] sm:tracking-auto
-        xl:text-5xl 
-        font-light'>{company}</h4>
-        
-        {/* Display company name */}
-        <p className=' font-bold text-[12px] sm:text-[16px]'>{jobTitle}</p>
-        
-        {/* Display logos */}
-        {/* <div className=' flex space-x-1 '>
-          <img className=' h-6 w-6 md:h-10 md:w-10 rounded-full '
-            src={}
-            alt=''
-            width={300}
-            height={300}
-          />
-        </div> */}
-        
-        {/* Display start and end date */}
-          <p className=' uppercase text-gray-300 text-sm' >{dateStarted} - {dateEnded}</p>
+                {/* Display start and end date */}
+                <p className=' uppercase text-gray-300 text-sm' >
+                    {/* Converting start and end dates to human-readable format */}
+                    {new Date(experience.dateStarted).toDateString()} - {" "} 
+                    {experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}
+                </p>
 
-        {/* Display summary points */}
-          <ul className=' list-disc space-y-0 ml-3 
-        text-[11px]'
-        >
-          <li>Responsive Design</li>
-          <li>New Feature Development</li>
-          <li>Cross-Functional Collaboration</li>
-          <li>Database Management</li>
-          <li>Data Retrieval Efficiency</li>
-          <li>Problem Solving</li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </article>
-  );
+                {/* Display summary points */}
+                <ul className=' list-disc space-y-0 ml-3 text-[11px] h-92 overflow-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
+                    {/* Mapping over points array to display summary points */}
+                    {experience.points.map((point,i) =>(
+                        <li key={i}>{point}</li>
+                    ))}
+                    <li>Responsive Design</li>
+                    <li>New Feature Development</li>
+                    <li>Cross-Functional Collaboration</li>
+                    <li>Database Management</li>
+                    <li>Data Retrieval Efficiency</li>
+                    <li>Problem Solving</li>
+                </ul>
+            </div>
+        </article>
+    );
 }
-
-export default ExperienceCard;
