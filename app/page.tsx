@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import HeaderSocials from "@/components/HeaderSocials";
 import Hero from "@/components/Hero";
 import { getExperience, getPageInfo, getSkill } from "@/sanity/sanity-utils";
+import Skills from "@/components/Skills";
 
 export default async function Home() {
   // Fetching information from Sanity
@@ -41,6 +42,11 @@ export default async function Home() {
       <section id='about' className='snap-center'>
         {/* Rendering WorkExperience component with fetched experiences */}
         <WorkExperience experiences={experiences} />
+      </section>
+
+      {/* Skills section */}
+      <section id="skills" className='snap-center'>
+        <Skills skills={skills}/>
       </section>
     </div>
   );

@@ -14,7 +14,7 @@ type Props = {
 
 // Define the ExperienceCard component
 export default function ExperienceCard({ experience }: Props) {
-    console.log(experience); // Logging experience object to console for debugging
+    //console.log(experience); // Logging experience object to console for debugging
     return (
         // Article container for the experience card
         <article className='bg-[#2f2f2f] flex flex-col items-center  flex-shrink-0 rounded-lg  space-y-0  
