@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import { getExperience, getPageInfo, getProjects, getSkill } from "@/sanity/sanity-utils";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import ContactMe from "@/components/ContactMe";
 
 export default async function Home() {
   
@@ -55,6 +56,11 @@ export default async function Home() {
       {/* Projects */}
       <section id='projects' className='snap-center'>
         <Projects projects={projects} />
+      </section>
+
+      {/* Contact Me */}
+      <section id='contactme' className='snap-center'>
+        <ContactMe />
       </section>
     </div>
   );
