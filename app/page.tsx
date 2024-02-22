@@ -3,15 +3,18 @@ import WorkExperience from "@/components/WorkExperience";
 import Header from "@/components/Header";
 import HeaderSocials from "@/components/HeaderSocials";
 import Hero from "@/components/Hero";
-import { getExperience, getPageInfo, getSkill } from "@/sanity/sanity-utils";
+import { getExperience, getPageInfo, getProjects, getSkill } from "@/sanity/sanity-utils";
 import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
 
 export default async function Home() {
+  
   // Fetching information from Sanity
   const information = await getPageInfo();
   const experiences = await getExperience();
   const skills = await getSkill();
-  
+  const projects = await getProjects();
+
   // Rendering the home page components
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen w-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0  scrollbar-track--gray-400/20 scrollbar-thumb-[#f7ab0a]/80 " >
@@ -47,6 +50,11 @@ export default async function Home() {
       {/* Skills section */}
       <section id="skills" className='snap-center'>
         <Skills skills={skills}/>
+      </section>
+
+      {/* Projects */}
+      <section id='projects' className='snap-center'>
+        <Projects projects={projects} />
       </section>
     </div>
   );

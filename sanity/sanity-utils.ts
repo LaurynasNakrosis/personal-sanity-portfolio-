@@ -17,9 +17,10 @@ export async function getProjects(): Promise<Project[]>{
             _createdAt,
             title,
             "slug": slug.current,
-            "image": image.asset->url,
+            image,
             summary,
             url,
+            technologies[]->
         }`
     )
 }
@@ -74,6 +75,7 @@ export async function getSkill(): Promise<Skill[]>{
         // GROQ query to fetch skill data
         groq`*[_type == 'skill']{
             ...,
+            image,
         }`
     )
 }
