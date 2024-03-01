@@ -44,7 +44,6 @@ export default async function Home() {
 
       {/* Experience section */}
       <section id='about' className='snap-center'>
-        {/* Rendering WorkExperience component with fetched experiences */}
         <WorkExperience experiences={experiences} />
       </section>
 

@@ -34,11 +34,11 @@ interface AboutProps {
           // viewport={{ once: true }}
           src={profilePicture}
           //alt='Picture of the author'
-          className='flex  p-0  bg-stone-50 w-20 h-20  sm:w-[120px] sm:h-[120px] flex-shrink-0  rounded-full object-cover md:rounded-lg md:w-[300px] md:h-[350px]'
+          className='flex  p-0  bg-stone-50 w-20 h-20  sm:w-[120px] sm:h-[120px]   rounded-full object-cover md:rounded-lg md:w-[300px] md:h-60  '
       />
         
       {/* Display the "Here is a little background" subtitle */}
-      <div className='pt-10 border-blue-500 space-y-2 -py-10 px-0 md:px-10' >
+      <div className='pt-10 md:pt-0 border-blue-500 space-y-2 -py-10 px-0 md:px-10' >
         <h4 className='text-lg font-semibold sm:text-2xl lg:text-3xl'>
           Here is a <span className='underline decoration-[#f7ab0a]/50'>little</span> background
         </h4>

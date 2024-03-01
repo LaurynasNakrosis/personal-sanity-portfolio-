@@ -36,7 +36,7 @@ export default function ExperienceCard({ experience }: Props) {
                     className=' rounded-full p-2
                     h-[85px] w-[85px] 
                     sm:h-[120px] sm:w-[120px]
-                    md:h-[100px] md:w-[100px]  
+                    md:h-[80px] md:w-[80px]  
                     xl:w-[100px] xl:h-[100px] 
                     object-cover object-center'
                     src={urlFor(experience?.companyImage).url()} // Constructing URL for the image
@@ -49,12 +49,12 @@ export default function ExperienceCard({ experience }: Props) {
                 {/* Display job title */}
                 <h4 className=' 
                 text-[18px]
-                sm:text-[35px] sm:tracking-auto
+                sm:text-[28px] sm:tracking-auto
                 xl:text-5xl 
                 font-light'>{experience.company}</h4>
                 
                 {/* Display company name */}
-                <p className=' font-bold text-[12px] sm:text-[16px]'>{experience.jobTitle}</p>
+                <p className=' font-bold text-[12px] sm:text-[14px]'>{experience.jobTitle}</p>
                 
                 {/* Display logos */}
                 <div className=' flex space-x-2 my-2'>
@@ -75,14 +75,14 @@ export default function ExperienceCard({ experience }: Props) {
                 </div>
 
                 {/* Display start and end date */}
-                <p className=' uppercase text-gray-300 text-sm' >
+                <p className=' uppercase text-gray-300 text-[11px]' >
                     {/* Converting start and end dates to human-readable format */}
                     {new Date(experience.dateStarted).toDateString()} - {" "} 
                     {experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}
                 </p>
 
                 {/* Display summary points */}
-                <ul className=' list-disc space-y-2 mx-3 pb-10 text-sm h-80 overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
+                <ul className=' list-disc space-y-2 mx-3 pb-10 text-sm h-36 overflow-y-scroll scrollbar scrollbar-track-[#f7ab0a]/80 scrollbar-thumb-[#f7ab0a]/80'>
                     {/* Mapping over points array to display summary points */}
                     {experience.points.map((point,i) =>(
                         <li key={i}>{point}</li>
