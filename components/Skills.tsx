@@ -30,7 +30,7 @@ function Skills({skills}: Props) {
       </h3>
 
       {/* Container for displaying skills */}
-      <div className='border grid grid-cols-3 sm:grid-cols-4 gap-2 '>
+      <div className='border grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 '>
         {/* Rendering Skill component multiple times */}
         {skills?.slice(0, skills.length/2).map(skill => (
             <Skill key={skill._id} skill={skill}/>

@@ -21,7 +21,8 @@ interface AboutProps {
         className='flex flex-col py-20 px-10 mx-auto relative h-screen  items-center justify-center sm:justify-evenly  text-center md:text-sm  md:text-left md:flex-row max-w-[2000px]  '
       >
       {/* Display the "About" title */}
-      <div className=' pl-5  absolute top-16 uppercase text-small tracking-[10px] text-gray-500 md:top-24 mt-8 sm:mt-2 sm:pl-5   sm:tracking-[20px]   md:text-2xl '>
+      <div className=' pl-5  absolute top-16 uppercase text-small tracking-[10px] text-gray-500
+      md:top-24 mt-8 sm:mt-2 sm:pl-5   sm:tracking-[20px]   md:text-2xl '>
         About
       </div>
       
@@ -32,19 +33,19 @@ interface AboutProps {
           whileInView={{ opacity: 1, x: 0 }}
           // viewport={{ once: true }}
           src={profilePicture}
-          alt='Picture of the author'
-          className='flex  p-0 w-24 h-24 my-4  sm:w-[120px] sm:h-[120px] flex-shrink-0  rounded-full object-cover md:rounded-lg md:w-[300px] md:h-[350px]'
+          //alt='Picture of the author'
+          className='flex  p-0  bg-stone-50 w-20 h-20  sm:w-[120px] sm:h-[120px] flex-shrink-0  rounded-full object-cover md:rounded-lg md:w-[300px] md:h-[350px]'
       />
         
       {/* Display the "Here is a little background" subtitle */}
-      <div className=' pt-0 border-blue-500 space-y-2 -py-10 px-0 md:px-10' >
+      <div className='pt-10 border-blue-500 space-y-2 -py-10 px-0 md:px-10' >
         <h4 className='text-lg font-semibold sm:text-2xl lg:text-3xl'>
           Here is a <span className='underline decoration-[#f7ab0a]/50'>little</span> background
         </h4>
-      
         {/* Display the detailed description */}
-
-          {backgroundInformation}
+          <p className="text-xs sm:text-xm lg:text-base ">
+            {backgroundInformation}
+          </p>
       </div>
       </motion.div>
     </div>

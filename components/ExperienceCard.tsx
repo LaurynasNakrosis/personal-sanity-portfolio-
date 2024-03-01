@@ -36,8 +36,8 @@ export default function ExperienceCard({ experience }: Props) {
                     className=' rounded-full p-2
                     h-[85px] w-[85px] 
                     sm:h-[120px] sm:w-[120px]
-                    md:h-[140px] md:w-[140px]  
-                    xl:w-[150px] xl:h-[150px] 
+                    md:h-[100px] md:w-[100px]  
+                    xl:w-[100px] xl:h-[100px] 
                     object-cover object-center'
                     src={urlFor(experience?.companyImage).url()} // Constructing URL for the image
                     alt=''
@@ -45,7 +45,7 @@ export default function ExperienceCard({ experience }: Props) {
             )}
 
             {/* Container for experience details */}
-            <div className='  px-0 md:px-10 flex flex-col space-y-2  '>
+            <div className='  px-5 md:px-10 flex flex-col space-y-2  '>
                 {/* Display job title */}
                 <h4 className=' 
                 text-[18px]
@@ -67,7 +67,7 @@ export default function ExperienceCard({ experience }: Props) {
                                     alt={technology.slug}
                                     width={10}
                                     height={10}
-                                    className=' w-10 h-10 rounded-full'
+                                    className=' w-5 h-5 rounded-full'
                                 />
                             )}
                         </div>
@@ -82,17 +82,11 @@ export default function ExperienceCard({ experience }: Props) {
                 </p>
 
                 {/* Display summary points */}
-                <ul className=' list-disc space-y-0 ml-3 text-[11px] h-92 overflow-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
+                <ul className=' list-disc space-y-2 mx-3 pb-10 text-sm h-80 overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
                     {/* Mapping over points array to display summary points */}
                     {experience.points.map((point,i) =>(
                         <li key={i}>{point}</li>
                     ))}
-                    <li>Responsive Design</li>
-                    <li>New Feature Development</li>
-                    <li>Cross-Functional Collaboration</li>
-                    <li>Database Management</li>
-                    <li>Data Retrieval Efficiency</li>
-                    <li>Problem Solving</li>
                 </ul>
             </div>
         </article>
