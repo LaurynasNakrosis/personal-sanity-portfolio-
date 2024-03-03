@@ -16,26 +16,26 @@ function Projects({projects}: Props) {
     initial={{ opacity: 0,  }}
     whileInView={{ opacity: 1}}
     transition={{ duration: 1.5, x: 0 }}  
-    className=' h-screen relative flex  overflow-hidden flex-col text-center md:flex-row max-w-full justify-evenly mx-auto items-center z-10 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
-        <h3 className=' absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
+    className=' h-screen relative flex  overflow-hidden text-center md:flex-row max-w-full justify-evenly mx-auto items-center z-10 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
+        <h3 className=' pl-3 absolute top-16 uppercase tracking-[10px] text-gray-500 text-small md:text-2xl lg:text-3xl'>Projects</h3>
 
-        <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20
+        <div className='relativemax-x-fit max-w-fit flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20
          scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
             {projects?.map((project, i) => (
                 /* Missing key element */
                 <div key={i} 
-                     className='border w-[1440px] h-[750px]  flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 '>
+                     className='h-full w-full my-24 px-5 flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center '>
                         <motion.img 
+                        className=' mt-8 min-h-44 min-w-60  max-h-[280px] px-3 '
                         initial={{ y: -300, opacity: 0, }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.2 }} 
-                        className='w-[250px] h-[150px]'              
-                        // src="https://cdn.sanity.io/images/ltuexkre/production/af7ca99b5a796d0698cf9121a4a0795b5022b6be-666x375.png"
+                        transition={{ duration: 1.2 }}             
+                        //src="https://cdn.sanity.io/images/ltuexkre/production/af7ca99b5a796d0698cf9121a4a0795b5022b6be-666x375.png"
                         src={urlFor(project?.image).url()}
                         alt="" />
-                <div className='border space-y-10 px-0 md:px-10 max-w-6xl'>
-                    <h4 className='text-4xl font-semibold text-center'>
-                        <span>Case study {i + 1} of {projects.length}: </span> {" "}{project?.title}
+                <div className='space-y-2 md:px-10 max-w-6xl'>
+                    <h4 className=' text-lg font-semibold text-center'>
+                        <span>Case study {i + 1} of {projects?.length}: </span> {" "}{project?.title}
                     </h4>
                     <div className='flex items-center space-x-2 justify-center'>
 {/* Mapping over technologies array to display technology images */}
@@ -47,13 +47,13 @@ function Projects({projects}: Props) {
                                     alt={technology.slug}
                                     width={10}
                                     height={10}
-                                    className=' w-10 h-10 rounded-full'
+                                    className=' w-6 h-6 sm:w-8 sm:h-8 rounded-full'
                                 />
                             )}
                         </div>
                     ))}
                     </div>
-                    <p>{project?.summary}</p>
+                    <p className='mb-10 text-[11px] sm:text-[14px] m-3 pb-5'>{project?.summary}</p>
                 </div>
                     
                 </div>

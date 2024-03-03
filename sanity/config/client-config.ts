@@ -1,10 +1,12 @@
-// Configuration object containing project ID, dataset name, API version, and CDN usage flag
+import createImageUrlBuilder from "@sanity/image-url"
+
 const config = {
-    projectId: "w186ajj8", // Project ID for the Sanity project
-    dataset: "production", // Dataset name to be used
-    apiVersion: "2024-01-20", // API version to be used
-    useCdn: false, // Flag indicating whether to use CDN (Content Delivery Network)
+    projectId: "w186ajj8",
+    dataset: "production",
+    apiVersion: "2024-03-09",
+    //useCdn: false,
 }
-// Exporting the configuration object as the default export
 export default config;
 
+export const urlFor = (source: any) => 
+createImageUrlBuilder(config).image(source);

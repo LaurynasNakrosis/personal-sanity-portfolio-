@@ -7,7 +7,9 @@ import { getExperience, getPageInfo, getProjects, getSkill } from "@/sanity/sani
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
-
+import Link from "next/link";
+import MyLogo from "../pictures/MyLogo.jpg"
+import Image from "next/image";
 export default async function Home() {
   
   // Fetching information from Sanity
@@ -61,6 +63,17 @@ export default async function Home() {
       <section id='contactme' className='snap-center'>
         <ContactMe />
       </section>
+
+      <Link href="#hero">
+      <footer className="sticky bottom-20 w-full cursor-pointer">
+        <div className="flex items-center justify-center">
+          <Image 
+          className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+          src={MyLogo} 
+          alt="" />
+        </div>
+      </footer>
+      </Link>
     </div>
   );
 }
