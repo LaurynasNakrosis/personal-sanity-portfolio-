@@ -14,7 +14,7 @@ function Skill({skill, directionLeft }: Props) {
     //console.log(skill); // Logging skills object to console for debugging
   return (
     // Container div for the skill
-    <div className=' w-full  h-full  group relative flex items-center cursor-pointer'>
+    <div className=' w-fit  h-fit  group relative flex items-center cursor-pointer'>
       {/* Image with motion animation */}
       {skill.image && (
         <motion.img
@@ -31,7 +31,7 @@ function Skill({skill, directionLeft }: Props) {
         src={urlFor(skill?.image)?.url()}
         
         // CSS classes for styling
-        className='rounded-full  border-gray-500 object-cover w-11 h-11  md:w-16 md:h-16 xl:w-20 xl:h-20 filter group-hover:grayscale transition duration-300 ease-in-out'
+        className='rounded-full flex border-gray-500 object-cover w-11 h-11  md:w-16 md:h-16 xl:w-20 xl:h-20 filter group-hover:grayscale transition duration-300 ease-in-out'
       />
       )}
       

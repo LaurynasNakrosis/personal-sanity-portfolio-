@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
       <div className=' z-20'>
         <h2 className='uppercase text-xs sm:text-sm  text-gray-500  pb-2 tracking-[8px]'>
-          Software Engineer
+          Full Stack Developer
         </h2>
 
         <h1 className='font-semibold px-10 text-xs md:text-4xl lg:text-5xl py-1'>

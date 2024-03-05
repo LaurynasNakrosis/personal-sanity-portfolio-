@@ -16,15 +16,15 @@ function Projects({projects}: Props) {
     initial={{ opacity: 0,  }}
     whileInView={{ opacity: 1}}
     transition={{ duration: 1.5, x: 0 }}  
-    className=' h-screen relative flex  overflow-hidden text-center md:flex-row max-w-full justify-evenly mx-auto items-center z-10 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
+    className=' pb-32 pt-12 h-screen relative flex  overflow-hidden text-center md:flex-row max-w-full justify-evenly mx-auto items-center z-10 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
         <h3 className=' pl-3 absolute top-16 uppercase tracking-[10px] text-gray-500 text-small md:text-2xl lg:text-3xl'>Projects</h3>
 
-        <div className=' h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20
+        <div className=' pb-3 h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20
          scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
             {projects?.map((project, i) => (
                 /* Missing key element */
                 <div key={i} 
-                     className=' pt-2 h-full w-full px-5 flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center '>
+                     className='pt-12 h-full w-full px-5 flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center '>
                         <motion.img 
                         className=' min-h-24 min-w-28  max-h-[280px] px-3 mr-4 '
                         initial={{ y: -100, opacity: 0, }}
@@ -33,7 +33,7 @@ function Projects({projects}: Props) {
                         //src="https://cdn.sanity.io/images/ltuexkre/production/af7ca99b5a796d0698cf9121a4a0795b5022b6be-666x375.png"
                         src={urlFor(project?.image).url()}
                         alt="" />
-                <div className=' space-y-2 mt-0 md:px-10 max-w-6xl'>
+                <div className='space-y-2 max-w-6xl'>
                     <h4 className=' text-lg font-semibold text-center'>
                         <span>Case study {i + 1} of {projects?.length}: </span> {" "}{project?.title}
                     </h4>
