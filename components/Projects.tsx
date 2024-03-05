@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Project } from '@/types/Project';
-import { urlFor } from '@/app/admin/[[...index]]/page';
+import { urlFor } from '../sanity/config/client-config';
 import Image from 'next/image';
 
 type Props = {

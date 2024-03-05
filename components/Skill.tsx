@@ -1,7 +1,7 @@
 import React from 'react'; // Importing React library
 import { motion } from 'framer-motion'; // Importing motion from 'framer-motion' library
 import { Skill } from '@/types/Skill';
-import { urlFor } from '@/app/admin/[[...index]]/page';
+import { urlFor } from '../sanity/config/client-config';
 
 // Props type definition
 type Props = {

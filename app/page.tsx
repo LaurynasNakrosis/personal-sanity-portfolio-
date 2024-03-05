@@ -8,7 +8,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
 import Link from "next/link";
-import MyLogo from "../pictures/MyLogo.jpg"
+import MyLogo from "../pictures/MyLogoGold.jpg"
 import Image from "next/image";
 export default async function Home() {
   
@@ -65,13 +65,15 @@ export default async function Home() {
       </section>
 
       <Link href="#hero">
-      <footer className="sticky bottom-20 w-full cursor-pointer">
-        <div className="flex items-center justify-center">
+      <footer className="sticky bottom-16 sm:bottom-5 w-full cursor-pointer">
+        <div className="flex flex-col items-center justify-center">
           <Image 
           className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
           src={MyLogo} 
           alt="" />
+          <p className=" text-gray-500 text-[10px]">Home</p>
         </div>
+        
       </footer>
       </Link>
     </div>
