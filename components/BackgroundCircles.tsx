@@ -23,11 +23,12 @@ function BackgroundCircles({}: Props) {
         }}
         className=' relative flex justify-center items-center top-[75px] sm:top-[121px] md:top-[138px] '>
             {/* First animated circle */}
-            <div className=' absolute border border-[#333333] rounded-full   h-[76px] w-[76px]   sm:h-[109px] sm:w-[109px]  md:h-[152px] md:w-[152px] animate-ping inline-flex' />
+            <div className=' absolute border border-[#e4b550] rounded-full   h-[76px] w-[76px]  sm:h-[109px] sm:w-[109px]  md:h-[152px] md:w-[152px] animate-ping inline-flex' />
             
             {/* Second animated circle */}
             <div className='rounded-full border border-[#333333]            h-[114px] w-[114px] sm:h-[171px] sm:w-[171px] md:h-[228px] md:w-[228px] absolute  ' />
-            
+
+            <div className='rounded-full border border-[#333333]            h-[114px] w-[114px] sm:h-[171px] sm:w-[171px] md:h-[228px] md:w-[228px] absolute  ' />            
             {/* Third animated circle */}
             <div className='rounded-full border border-[#333333]            h-[190px] w-[190px] sm:h-[275px] sm:w-[275px] md:h-[380px] md:w-[380px] absolute  ' />
             

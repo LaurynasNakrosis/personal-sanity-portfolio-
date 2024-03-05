@@ -64,18 +64,20 @@ export default async function Home() {
         <ContactMe />
       </section>
 
-      <Link href="#hero">
-      <footer className="sticky bottom-16 sm:bottom-5 w-full cursor-pointer">
+      
+      <footer className="sticky bottom-16 sm:bottom-5 w-full cursor-pointer z-50 ">
         <div className="flex flex-col items-center justify-center">
+        <Link href="#hero">
           <Image 
           className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
           src={MyLogo} 
           alt="" />
+        </Link>
           <p className=" text-gray-500 text-[10px]">Home</p>
         </div>
         
       </footer>
-      </Link>
+      
     </div>
   );
 }

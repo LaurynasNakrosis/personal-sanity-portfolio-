@@ -13,7 +13,7 @@ const Header = ({
     
     return(
         
-        <div className=' sticky top-0 p-1 flex items-start justify-between md:px-6' >
+        <div className=' sticky top-0 p-1 flex items-start justify-between md:px-6 z-50' >
           <motion.div
             initial={{
               x: -500,

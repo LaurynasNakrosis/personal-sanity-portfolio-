@@ -29,7 +29,7 @@ export default function WorkExperience({ experiences }: Props) {
         Experience
       </h3>
       {/* Container for experience cards */}
-      <div className='flex w-full justify-between sm:my-0 sm:p-6 sm:pt-24 sm:space-x-5  overflow-x-scroll snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
+      <div className='border border-red-500 flex w-full justify-between sm:my-0 sm:p-6 sm:pt-24 sm:space-x-5  overflow-x-scroll snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
         {/* Mapping over experiences array to render ExperienceCard for each */}
         {experiences?.map(experience => (
           <ExperienceCard key={experience._id} experience={experience} />
