@@ -8,7 +8,6 @@ type Props = {
 }
 
 function About ({information}:Props) {
-  console.log(information)
     return( 
     <div>
       <motion.div 
