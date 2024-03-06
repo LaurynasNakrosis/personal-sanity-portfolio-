@@ -34,14 +34,7 @@ export default async function Home() {
       {/* About section */}
       <section id='about' className='snap-center'>
         {/* Mapping over information to render About component */}
-        {information.map((data) => (
-          <About 
-            key={data._id}
-            backgroundInformation={data.backgroundInformation}
-            profilePicture={data.images[0].url}
-            slug={data.slug}
-          />
-        ))}
+        <About information={information} />
       </section>
 
       {/* Experience section */}

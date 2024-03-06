@@ -45,13 +45,7 @@ export async function getPageInfo(): Promise<PageInfo[]>{
     return createClient(clientConfig).fetch(
         // GROQ query to fetch pageInfo data
         groq`*[_type == 'pageInfo']{
-            _id,
-            _createdAt,
-            _Type,
-            name,
-            slug,
-            backgroundInformation,
-            images
+            ...,
         }`
     )
 }

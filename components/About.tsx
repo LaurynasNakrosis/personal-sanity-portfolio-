@@ -1,17 +1,14 @@
 "use client";
-import { FC } from "react"
 import { motion } from 'framer-motion';
-import dynamic from "next/dynamic";
-import profilePic from '../pictures/hero.jpg'
+import { PageInfo } from "@/types/PageInfo";
+import { urlFor } from "@/sanity/config/client-config";
 
-interface AboutProps {
-  backgroundInformation: string;
-  profilePicture: string;
-  slug: string;
+type Props = {
+  information: PageInfo[]
 }
 
- const AboutContent: FC<AboutProps> = (props) => {
-    const {backgroundInformation, profilePicture, slug } = props;
+function About ({information}:Props) {
+  console.log(information)
     return( 
     <div>
       <motion.div 
@@ -26,15 +23,21 @@ interface AboutProps {
       </div>
       
       {/* Display the profile image with motion */}
-      <motion.img 
+      {information.map((info) => (
+        <motion.img 
+        key={info._id}
           initial={{ x: -200, opacity: 0 }}
           transition={{ duration: 1.2 }}
           whileInView={{ opacity: 1, x: 0 }}
           // viewport={{ once: true }}
-          src={profilePicture}
-          //alt='Picture of the author'
+          src={urlFor(info?.image).url()} // Constructing URL for the image
+          alt='Picture of the author'
           className='flex  p-0 mb-2 bg-stone-50 w-20 h-20  sm:w-[120px] sm:h-[120px] rounded-full object-cover md:rounded-lg md:w-[300px] md:h-60 lg:w-[320px] lg:h-[320px] '
       />
+      ))}
+        
+      
+      
         
       {/* Display the "Here is a little background" subtitle */}
       <div className=' border-blue-500 space-y-2 -py-10 px-0 md:px-10' >
@@ -43,11 +46,14 @@ interface AboutProps {
         </h4>
         {/* Display the detailed description */}
           <p className="text-xs sm:text-xm lg:text-base ">
-            {backgroundInformation}
+            {information.map((info) => (
+              info.backgroundInformation
+            ))}
           </p>
       </div>
       </motion.div>
     </div>
     )
 }
-export default dynamic (() => Promise.resolve(AboutContent), {ssr: false})
+export default About
+// export default dynamic (() => Promise.resolve(AboutContent), {ssr: false})

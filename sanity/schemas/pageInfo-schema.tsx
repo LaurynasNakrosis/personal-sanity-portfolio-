@@ -14,20 +14,26 @@ const pageInfo = {
             type: 'slug',
             options: {source: 'name'}
         },
+        // {
+        //     name: 'images',
+        //     type: 'array',
+        //     options: {hotspot: true},
+        //     of:[
+        //         {
+        //             type: 'object',
+        //             fields: [
+        //                 { name:'url', type: 'url', title: 'URL' },
+        //                 { name:'file', type: 'file', title: 'File' },
+        //             ],
+        //             validation: (Rule: any) => Rule.required(),
+        //         },
+        //     ],
+        // },
         {
-            name: 'images',
-            type: 'array',
+            name: 'image',
+            title: 'Image',
+            type: 'image',
             options: {hotspot: true},
-            of:[
-                {
-                    type: 'object',
-                    fields: [
-                        { name:'url', type: 'url', title: 'URL' },
-                        { name:'file', type: 'file', title: 'File' },
-                    ],
-                    validation: (Rule: any) => Rule.required(),
-                },
-            ],
         },
         {
             name: 'backgroundInformation',
