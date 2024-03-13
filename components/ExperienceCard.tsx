@@ -31,7 +31,7 @@ export default function ExperienceCard({ experience }: Props) {
                     whileInView={{ opacity: 1, y: 0 }}
                     //viewport={{ once: true }}
                     className=' rounded-full
-                 h-24 w-24
+                 h-18 w-18
                     max-w-[100px] max-h-[100px] 
                     object-cover object-center'
                     src={urlFor(experience?.companyImage).url()} // Constructing URL for the image
@@ -49,7 +49,7 @@ export default function ExperienceCard({ experience }: Props) {
                 font-light'>{experience.company}</h4>
                 
                 {/* Display company name */}
-                <p className=' font-bold text-[12px] sm:text-[14px]'>{experience.jobTitle}</p>
+                <p className=' font-bold text-[12px] sm:text-[14px] md:text-[18px]'>{experience.jobTitle}</p>
                 
                 {/* Display logos */}
                 <div className=' flex space-x-2 my-2'>
@@ -62,7 +62,7 @@ export default function ExperienceCard({ experience }: Props) {
                                     alt={technology.slug}
                                     width={10}
                                     height={10}
-                                    className=' w-5 h-5 rounded-full'
+                                    className='flex w-5 h-5 md:w-8 md:h-8 rounded-full'
                                 />
                             )}
                         </div>
@@ -70,14 +70,14 @@ export default function ExperienceCard({ experience }: Props) {
                 </div>
 
                 {/* Display start and end date */}
-                <p className=' uppercase text-gray-300 text-[11px]' >
+                <p className=' uppercase text-gray-300 text-[11px] md:text-[13px]' >
                     {/* Converting start and end dates to human-readable format */}
                     {new Date(experience.dateStarted).toDateString()} - {" "} 
                     {experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}
                 </p>
 
                 {/* Display summary points */}
-                <ul className='rounded-lg bg-[#393939] list-disc space-y-2  p-4 text-sm h-40 md:h-40 overflow-y-scroll scrollbar scrollbar-track-[#f7ab0a]/80 scrollbar-thumb-[#f7ab0a]/80'>
+                <ul className='rounded-lg bg-[#393939] list-disc space-y-2  py-3 pl-5 md:pl-10 pr-2 text-sm h-40 md:text-[18px]  overflow-y-scroll scrollbar scrollbar-track-[#f7ab0a]/80 scrollbar-thumb-[#f7ab0a]/80'>
                     {/* Mapping over points array to display summary points */}
                     {experience.points.map((point,i) =>(
                         <li key={i}>{point}</li>

@@ -24,9 +24,9 @@ function Projects({projects}: Props) {
             {projects?.map((project, i) => (
                 /* Missing key element */
                 <div key={i} 
-                     className='pt-12 h-full w-full px-5 flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center '>
+                     className=' pt-12 h-full w-full px-5 flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center '>
                         <motion.img 
-                        className=' min-h-24 min-w-28  max-h-[280px] px-3 mr-4 '
+                        className=' min-h-24 min-w-28  max-h-[200px] px-3 sm:pr-16  '
                         initial={{ y: -100, opacity: 0, }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2 }}             

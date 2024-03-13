@@ -58,7 +58,7 @@ export default async function Home() {
       </section>
 
       
-      <footer className="sticky bottom-16 sm:bottom-5 w-full cursor-pointer z-50 ">
+      <footer className="sticky bottom-[65px] sm:bottom-5 w-full cursor-pointer z-50 ">
         <div className="flex flex-col items-center justify-center">
         <Link href="#hero">
           <Image 
