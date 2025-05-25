@@ -17,18 +17,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://laurynas-nakrosis.vercel.app'),
+  metadataBase: new URL('https://www.laurynasnakrosis.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Laurynas Nakrosis | Full Stack Developer",
     description: "Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
-    url: 'https://laurynas-nakrosis.vercel.app',
+    url: 'https://www.laurynasnakrosis.com',
     siteName: "Laurynas Nakrosis Portfolio",
     images: [
       {
-        url: '/MyLogoGold.jpg',
+        url: 'https://www.laurynasnakrosis.com/MyLogoGold.jpg',
         width: 1200,
         height: 630,
         alt: 'Laurynas Nakrosis Portfolio Preview',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Laurynas Nakrosis | Full Stack Developer",
     description: "Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
-    images: ['/MyLogoGold.jpg'],
+    images: ['https://www.laurynasnakrosis.com/MyLogoGold.jpg'],
   },
   robots: {
     index: true,
