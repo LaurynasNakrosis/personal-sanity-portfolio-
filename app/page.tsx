@@ -12,21 +12,12 @@ import MyLogo from "../pictures/MyLogoGold.jpg"
 import Image from "next/image";
 export default async function Home() {
   
-<<<<<<< HEAD
-  // Fetching information from Sanity.com
-  const information = await getPageInfo();
-  const experiences = await getExperience(); 
-  const skills = await getSkill();
-  const projects = await getProjects();
-//blah blah blah
-=======
   // Fetching information from Sanity
   const information = await getPageInfo();
   const experiences = await getExperience();
   const skills = await getSkill();
   const projects = await getProjects();
 
->>>>>>> 5c4161509a65818ca85f0afbba35ca8733089033
   // Rendering the home page components
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen w-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 " >
@@ -36,33 +27,33 @@ export default async function Home() {
       </Header>
         
       {/* Hero section */}
-      <section id="hero" className='snap-center'>
+      <section id="hero" className="snap-center">
         <Hero />
       </section>
 
       {/* About section */}
-      <section id='about' className='snap-center'>
+      <section id="about" className="snap-center">
         {/* Mapping over information to render About component */}
         <About information={information} />
       </section>
 
       {/* Experience section */}
-      <section id='about' className='snap-center'>
+      <section id="about" className="snap-center">
         <WorkExperience experiences={experiences} />
       </section>
 
       {/* Skills section */}
-      <section id="skills" className='snap-center'>
+      <section id="skills" className="snap-center">
         <Skills skills={skills}/>
       </section>
 
       {/* Projects */}
-      <section id='projects' className='snap-center'>
+      <section id="projects" className="snap-center">
         <Projects projects={projects} />
       </section>
 
       {/* Contact Me */}
-      <section id='contactme' className='snap-center'>
+      <section id="contactme" className="snap-center">
         <ContactMe />
       </section>
 
