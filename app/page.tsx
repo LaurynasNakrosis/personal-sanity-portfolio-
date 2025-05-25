@@ -38,7 +38,7 @@ export default async function Home() {
       </section>
 
       {/* Experience section */}
-      <section id="about" className="snap-center">
+      <section id="workExperience" className="snap-center">
         <WorkExperience experiences={experiences} />
       </section>
 

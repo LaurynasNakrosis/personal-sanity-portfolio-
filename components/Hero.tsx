@@ -21,10 +21,10 @@ export default function Hero() {
 
           <BackgroundCircles/>
 
-        <div className=' w-full  sm:pt-6'>
+        <div className=' w-full  sm:pt-6 z-50'>
 
         <Image 
-          className="  h-20 w-20 sm:h-32 sm:w-32 md:h-40 md:w-40  rounded-full mx-auto  my-auto  object-cover "
+          className="  h-20 w-20 sm:h-32 sm:w-32 md:h-40 md:w-40  rounded-full mx-auto  my-auto  object-cover  "
           src={hero}
           alt='Picture of the author'
           priority 
@@ -40,11 +40,11 @@ export default function Hero() {
           <Cursor cursorColor="#F7AB0A" />
         </h1>
 
-        <div className='pt-1 flex flex-col gap-1 sm:gap-2 sm:flex-row sm:justify-center z-20'>
+        <div className='pt-1 flex flex-col gap-1  pt-10 md:pt-0 md:gap-2 md:flex-row md:justify-center z-20'>
           <Link href="#about">
             <button className='heroButton'>About</button>
           </Link>
-          <Link href="#experience">
+          <Link href="#workExperience">
             <button className='heroButton'>Experience</button>
           </Link>
           <Link href="#skills">

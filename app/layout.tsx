@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
@@ -21,10 +21,20 @@ const jsonLd = {
   }
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+};
+
 export const metadata: Metadata = {
-  title: "Laurynas Nakrosis | Full Stack Developer",
-  description: "Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
-  keywords: ["Full-stack developer", "Web development", "React", "Next.js", "TypeScript", "Portfolio", "Sanity.io"],
+  title: "Laurynas Nakrosis | Full Stack Developer Portfolio",
+  description: "Laurynas Nakrosis - Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
+  keywords: ["Laurynas Nakrosis", "Full-stack developer", "Web development", "React", "Next.js", "TypeScript", "Portfolio", "Sanity.io", "London Developer"],
   authors: [{ name: "Laurynas Nakrosis" }],
   creator: "Laurynas Nakrosis",
   publisher: "Laurynas Nakrosis",
@@ -38,8 +48,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Laurynas Nakrosis | Full Stack Developer",
-    description: "Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
+    title: "Laurynas Nakrosis | Full Stack Developer Portfolio",
+    description: "Laurynas Nakrosis - Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
     url: 'https://www.laurynasnakrosis.com',
     siteName: "Laurynas Nakrosis Portfolio",
     images: [
@@ -55,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Laurynas Nakrosis | Full Stack Developer",
-    description: "Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
+    title: "Laurynas Nakrosis | Full Stack Developer Portfolio",
+    description: "Laurynas Nakrosis - Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
     images: ['https://www.laurynasnakrosis.com/MyLogoGold.jpg'],
     creator: '@your_twitter_handle',
   },
@@ -71,21 +81,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', // Replace with your verification code
-  },
   category: 'technology',
   classification: 'Portfolio',
   referrer: 'origin-when-cross-origin',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },
@@ -148,6 +146,7 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <div className='fixed w-full top-[30%] bg-gradient-to-b from-[#5f4307] via-[#614302] left-0 h-[300px] -skew-y-[14deg] z-0 [&:not(:has(+ #hero))]' />
         {children}
         <Analytics />
       </body>

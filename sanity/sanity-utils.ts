@@ -21,7 +21,9 @@ export async function getProjects(): Promise<Project[]>{
             summary,
             url,
             technologies[]->
-        }`
+        }`,
+        {},
+        { next: { revalidate: 60 } }
     )
 }
 
@@ -35,7 +37,9 @@ export async function getSocials(): Promise<Social[]>{
             title,
             slug,
             url,
-        }`
+        }`,
+        {},
+        { next: { revalidate: 60 } }
     )
 }
 
@@ -46,7 +50,9 @@ export async function getPageInfo(): Promise<PageInfo[]>{
         // GROQ query to fetch pageInfo data
         groq`*[_type == 'pageInfo']{
             ...,
-        }`
+        }`,
+        {},
+        { next: { revalidate: 60 } }
     )
 }
 
@@ -58,7 +64,9 @@ export async function getExperience(): Promise<Experience[]>{
         groq`*[_type == 'experience']{
             ...,
             technologies[]->
-        }`
+        }`,
+        {},
+        { next: { revalidate: 60 } } // Revalidate every 60 seconds
     )
 }
 
@@ -70,6 +78,8 @@ export async function getSkill(): Promise<Skill[]>{
         groq`*[_type == 'skill']{
             ...,
             image,
-        }`
+        }`,
+        {},
+        { next: { revalidate: 60 } }
     )
 }
