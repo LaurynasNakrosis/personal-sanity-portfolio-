@@ -12,12 +12,21 @@ import MyLogo from "../pictures/MyLogoGold.jpg"
 import Image from "next/image";
 export default async function Home() {
   
+<<<<<<< HEAD
   // Fetching information from Sanity.com
   const information = await getPageInfo();
   const experiences = await getExperience(); 
   const skills = await getSkill();
   const projects = await getProjects();
 //blah blah blah
+=======
+  // Fetching information from Sanity
+  const information = await getPageInfo();
+  const experiences = await getExperience();
+  const skills = await getSkill();
+  const projects = await getProjects();
+
+>>>>>>> 5c4161509a65818ca85f0afbba35ca8733089033
   // Rendering the home page components
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen w-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 " >
