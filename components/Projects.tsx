@@ -45,13 +45,14 @@ function Projects({projects}: Props) {
                         initial={{ y: -100, opacity: 0, }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2 }}             
-                        src={urlFor(project?.image).url()}
+                        src={project?.image ? urlFor(project.image).url() : ''}
                         alt="" />
                 <div className='space-y-2 max-w-6xl'>
-                    <h4 className='text-lg font-semibold text-center'>
-                        <span>Case study {i + 1} of {projects?.length}: </span> {" "}{project?.title}
+                    <h4 className='text-sm md:text-lg font-semibold text-center px-2'>
+                        <span className='text-xs md:text-base'>Case study {i + 1} of {projects?.length}: </span> {" "}
+                        <span className='block mt-1'>{project?.title}</span>
                     </h4>
-                    <div className='flex items-center space-x-2 justify-center'>
+                    <div className='flex items-center space-x-2 justify-center flex-wrap gap-2'>
                         {project.technologies.map((technology) => (
                             <div key={technology._id}>
                                 {technology.image && (
@@ -66,7 +67,9 @@ function Projects({projects}: Props) {
                             </div>
                         ))}
                     </div>
-                    <p className='text-[11px] sm:text-[14px] m-3 pb-3'>{project?.summary}</p>
+                    <div className='max-h-[100px] md:max-h-[150px] overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
+                        <p className='text-[11px] sm:text-[14px] m-3 pb-3 text-left'>{project?.summary}</p>
+                    </div>
                 </div>
                 </div>
             ))}
