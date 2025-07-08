@@ -10,14 +10,30 @@ import ContactMe from "@/components/ContactMe";
 import Link from "next/link";
 import MyLogo from "../pictures/MyLogoGold.jpg"
 import Image from "next/image";
+import { PageInfo } from "@/types/PageInfo";
+import { Experience } from "@/types/Experience";
+import { Skill } from "@/types/Skill";
+import { Project } from "@/types/Project";
+
 export default async function Home() {
   
   // Fetching information from Sanity
-  const information = await getPageInfo();
-  const experiences = await getExperience();
-  const skills = await getSkill();
-  const projects = await getProjects();
-//blah blah blah
+  let information: PageInfo[], experiences: Experience[], skills: Skill[], projects: Project[];
+  
+  try {
+    information = await getPageInfo();
+    experiences = await getExperience();
+    skills = await getSkill();
+    projects = await getProjects();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    // Provide fallback empty arrays
+    information = [];
+    experiences = [];
+    skills = [];
+    projects = [];
+  }
+  
   // Rendering the home page components
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen w-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 " >

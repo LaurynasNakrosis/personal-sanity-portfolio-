@@ -1,11 +1,11 @@
 import React from 'react'; // Importing React library
 import { motion } from 'framer-motion'; // Importing motion from 'framer-motion' library
-import { Skill } from '@/types/Skill';
+import type { Skill as SkillType } from '@/types/Skill';
 import { urlFor } from '../sanity/config/client-config';
 
 // Props type definition
 type Props = {
-    skill: Skill;
+    skill: SkillType;
     directionLeft?: boolean; // Optional prop indicating direction
 }
 

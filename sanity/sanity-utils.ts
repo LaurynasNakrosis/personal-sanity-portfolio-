@@ -60,8 +60,8 @@ export async function getPageInfo(): Promise<PageInfo[]>{
 export async function getExperience(): Promise<Experience[]>{
     // Creating a Sanity client using clientConfig and fetching data based on the specified GROQ query
     return createClient(clientConfig).fetch(
-        // GROQ query to fetch experience data
-        groq`*[_type == 'experience']{
+        // GROQ query to fetch experience data, sorted by creation date (newest first)
+        groq`*[_type == 'experience'] | order(_createdAt desc){
             ...,
             technologies[]->
         }`,
