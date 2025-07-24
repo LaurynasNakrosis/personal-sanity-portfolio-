@@ -51,7 +51,7 @@ export default function Reviews({ reviews }: Props) {
                         Share Your Experience
                     </h4>
                     <p className="text-gray-400 mb-6">
-                        Have you worked with me? I'd love to hear about your experience!
+                        Have you worked with me? I&apos;d love to hear about your experience!
                     </p>
                     <button
                         onClick={() => setShowForm(!showForm)}

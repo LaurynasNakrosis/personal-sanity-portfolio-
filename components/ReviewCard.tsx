@@ -6,6 +6,7 @@ import { Review } from '@/types/Review';
 import { urlFor } from "../sanity/config/client-config";
 import { StarIcon } from '@heroicons/react/24/solid';
 import { StarIcon as StarOutlineIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 type Props = {
     review: Review;
@@ -49,16 +50,18 @@ export default function ReviewCard({ review }: Props) {
             {/* Review Text */}
             <div className="mb-4 flex-1">
                 <blockquote className="text-gray-300 text-sm md:text-base italic break-words leading-relaxed">
-                    "{review.reviewText}"
+                    &ldquo;{review.reviewText}&rdquo;
                 </blockquote>
             </div>
 
             {/* Reviewer Info */}
             <div className="flex items-center space-x-3 mt-auto">
                 {review.profileImage && (
-                    <img
+                    <Image
                         src={urlFor(review.profileImage).url()}
                         alt={review.reviewerName}
+                        width={48}
+                        height={48}
                         className="w-12 h-12 rounded-full object-cover"
                     />
                 )}
