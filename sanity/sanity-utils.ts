@@ -6,6 +6,7 @@ import { Social } from "@/types/Social";
 import { PageInfo } from "@/types/PageInfo";
 import { Experience } from "@/types/Experience";
 import { Skill } from "@/types/Skill";
+import { Review } from "@/types/Review";
 
 // Defining an asynchronous function named getProjects which returns a Promise of an array of Project objects
 export async function getProjects(): Promise<Project[]>{
@@ -60,8 +61,9 @@ export async function getPageInfo(): Promise<PageInfo[]>{
 export async function getExperience(): Promise<Experience[]>{
     // Creating a Sanity client using clientConfig and fetching data based on the specified GROQ query
     return createClient(clientConfig).fetch(
-        // GROQ query to fetch experience data, sorted by creation date (newest first)
-        groq`*[_type == 'experience'] | order(_createdAt desc){
+        // GROQ query to fetch experience data, sorted by start date (oldest first)
+        // groq`*[_type == 'experience'] | order(_createdAt desc){
+        groq`*[_type == 'experience'] | order(dateStarted desc){
             ...,
             technologies[]->
         }`,
@@ -78,6 +80,20 @@ export async function getSkill(): Promise<Skill[]>{
         groq`*[_type == 'skill']{
             ...,
             image,
+        }`,
+        {},
+        { next: { revalidate: 60 } }
+    )
+}
+
+// Defining an asynchronous function named getReviews which returns a Promise of an array of Review objects
+export async function getReviews(): Promise<Review[]>{
+    // Creating a Sanity client using clientConfig and fetching data based on the specified GROQ query
+    return createClient(clientConfig).fetch(
+        // GROQ query to fetch review data, sorted by featured status and creation date
+        groq`*[_type == 'review' && isApproved == true] | order(isFeatured desc, _createdAt desc){
+            ...,
+            profileImage,
         }`,
         {},
         { next: { revalidate: 60 } }

@@ -3,9 +3,10 @@ import WorkExperience from "@/components/WorkExperience";
 import Header from "@/components/Header";
 import HeaderSocials from "@/components/HeaderSocials";
 import Hero from "@/components/Hero";
-import { getExperience, getPageInfo, getProjects, getSkill } from "@/sanity/sanity-utils";
+import { getExperience, getPageInfo, getProjects, getSkill, getReviews } from "@/sanity/sanity-utils";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import Reviews from "@/components/Reviews";
 import ContactMe from "@/components/ContactMe";
 import Link from "next/link";
 import MyLogo from "../pictures/MyLogoGold.jpg"
@@ -14,17 +15,19 @@ import { PageInfo } from "@/types/PageInfo";
 import { Experience } from "@/types/Experience";
 import { Skill } from "@/types/Skill";
 import { Project } from "@/types/Project";
+import { Review } from "@/types/Review";
 
 export default async function Home() {
   
   // Fetching information from Sanity
-  let information: PageInfo[], experiences: Experience[], skills: Skill[], projects: Project[];
+  let information: PageInfo[], experiences: Experience[], skills: Skill[], projects: Project[], reviews: Review[];
   
   try {
     information = await getPageInfo();
     experiences = await getExperience();
     skills = await getSkill();
     projects = await getProjects();
+    reviews = await getReviews();
   } catch (error) {
     console.error('Error fetching data:', error);
     // Provide fallback empty arrays
@@ -32,6 +35,7 @@ export default async function Home() {
     experiences = [];
     skills = [];
     projects = [];
+    reviews = [];
   }
   
   // Rendering the home page components
@@ -66,6 +70,11 @@ export default async function Home() {
       {/* Projects */}
       <section id="projects" className="snap-center">
         <Projects projects={projects} />
+      </section>
+
+      {/* Reviews */}
+      <section id="reviews" className="snap-center">
+        <Reviews reviews={reviews} />
       </section>
 
       {/* Contact Me */}

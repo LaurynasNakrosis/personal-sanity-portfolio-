@@ -25,9 +25,9 @@ function Skills({skills}: Props) {
       <h3 className=' pl-3 absolute top-16 uppercase tracking-[10px] text-gray-500 text-small md:text-2xl lg:text-3xl '>Skills</h3>
       
       {/* Sub-heading for skills section */}
-      <h3 className='absolute top-36 uppercase tracking-[1px] text-gray-500 text-[10px]'>
+      {/* <h3 className='absolute top-36 uppercase tracking-[1px] text-gray-500 text-[10px]'>
         Hover over a skill for current proficiency
-      </h3>
+      </h3> */}
 
       {/* Container for displaying skills */}
       <div className=' p-4 w-fit grid gap-2 grid-cols-5  sm:gap-4 sm:grid-cols-6 md:grid-cols-7  '>

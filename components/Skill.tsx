@@ -36,12 +36,12 @@ function Skill({skill, directionLeft }: Props) {
       )}
       
       {/* Absolute div for skill percentage */}
-      <div className='absolute m-3 ml-0 opacity-0 group-hover:opacity-60 transition duration-300 ease-in-out group-hover:bg-white w-11 h-11 md:w-16 md:h-16 xl:w-20 xl:h-20 rounded-full z-0'>
+      {/* <div className='absolute m-3 ml-0 opacity-0 group-hover:opacity-60 transition duration-300 ease-in-out group-hover:bg-white w-11 h-11 md:w-16 md:h-16 xl:w-20 xl:h-20 rounded-full z-0'>
         <div className=' flex items-center justify-center h-full'>
-          {/* Displaying skill percentage */}
+          
           <p className='text:-2xl md:text-3xl font-bold text-black opacity-100 '>{skill.progress}%</p>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

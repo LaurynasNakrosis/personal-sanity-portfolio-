@@ -53,19 +53,19 @@ function Projects({projects}: Props) {
                         <span className='block mt-1'>{project?.title}</span>
                     </h4>
                     <div className='flex items-center space-x-2 justify-center flex-wrap gap-2'>
-                        {project.technologies.map((technology) => (
-                            <div key={technology._id}>
-                                {technology.image && (
-                                    <Image
+{project.technologies.map((technology) => (
+                        <div key={technology._id}>
+                            {technology.image && (
+                                <Image
                                         src={urlFor(technology?.image)?.url()}
-                                        alt={technology.slug}
-                                        width={10}
-                                        height={10}
+                                    alt={technology.slug}
+                                    width={10}
+                                    height={10}
                                         className='w-6 h-6 sm:w-8 sm:h-8 rounded-full'
-                                    />
-                                )}
-                            </div>
-                        ))}
+                                />
+                            )}
+                        </div>
+                    ))}
                     </div>
                     <div className='max-h-[100px] md:max-h-[150px] overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
                         <p className='text-[11px] sm:text-[14px] m-3 pb-3 text-left'>{project?.summary}</p>

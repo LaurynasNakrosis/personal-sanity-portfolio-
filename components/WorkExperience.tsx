@@ -13,7 +13,7 @@ type Props = {
 // Defining WorkExperience functional component
 export default function WorkExperience({ experiences }: Props) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1}}
       transition={{ duration: 1.5, x: 0 }}  
