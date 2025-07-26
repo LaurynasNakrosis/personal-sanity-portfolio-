@@ -24,50 +24,65 @@ export default function Reviews({ reviews }: Props) {
                 Reviews
             </h3>
 
-            {/* Reviews Section */}
+            {/* Main Content Section - Reviews or Form */}
             <div className="w-full max-w-7xl mx-auto px-4 pt-20 pb-8">
-                {(!reviews || reviews.length === 0) ? (
-                    <div className="flex flex-col items-center justify-center space-y-4 py-20">
-                        <p className="text-gray-400 text-lg md:text-xl">
-                            No reviews yet
-                        </p>
-                        <p className="text-gray-500 text-sm md:text-base mb-8">
-                            Be the first to leave a review!
-                        </p>
-                    </div>
-                ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 items-stretch">
-                        {reviews.map((review) => (
-                            <ReviewCard key={review._id} review={review} />
-                        ))}
-                    </div>
-                )}
-            </div>
-
-            {/* Review Form Section */}
-            <div className="w-full max-w-4xl mx-auto px-4 mb-20">
-                <div className="text-center mb-8">
-                    <h4 className="text-2xl font-semibold text-white mb-4">
-                        Share Your Experience
-                    </h4>
-                    <p className="text-gray-400 mb-6">
-                        Have you worked with me? I&apos;d love to hear about your experience!
-                    </p>
-                    <button
-                        onClick={() => setShowForm(!showForm)}
-                        className="bg-[#f7ab0a] text-black font-semibold py-3 px-6 rounded-md hover:bg-[#f7ab0a]/80 transition-colors duration-200"
+                {showForm ? (
+                    // Show Review Form when button is pressed
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex flex-col items-center"
                     >
-                        {showForm ? 'Hide Review Form' : 'Leave a Review'}
-                    </button>
-                </div>
-
-                {showForm && (
+                        <div className="text-center mb-8">
+                            <h4 className="text-2xl font-semibold text-white mb-4">
+                                Share Your Experience
+                            </h4>
+                            <p className="text-gray-400 mb-6">
+                                Have you worked with me? I&apos;d love to hear about your experience!
+                            </p>
+                            <button
+                                onClick={() => setShowForm(false)}
+                                className="bg-[#f7ab0a] text-black font-semibold py-3 px-6 rounded-md hover:bg-[#f7ab0a]/80 transition-colors duration-200"
+                            >
+                                Back to Reviews
+                            </button>
+                        </div>
+                        <ReviewForm onClose={() => setShowForm(false)} />
+                    </motion.div>
+                ) : (
+                    // Show Reviews when form is hidden
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <ReviewForm onClose={() => setShowForm(false)} />
+                        {(!reviews || reviews.length === 0) ? (
+                            <div className="flex flex-col items-center justify-center space-y-4 py-20">
+                                <p className="text-gray-400 text-lg md:text-xl">
+                                    No reviews yet
+                                </p>
+                                <p className="text-gray-500 text-sm md:text-base mb-8">
+                                    Be the first to leave a review!
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 items-stretch">
+                                {reviews.map((review) => (
+                                    <ReviewCard key={review._id} review={review} />
+                                ))}
+                            </div>
+                        )}
+                        
+                        {/* Leave Review Button */}
+                        <div className="text-center mt-8">
+                            <button
+                                onClick={() => setShowForm(true)}
+                                className="bg-[#f7ab0a] text-black font-semibold py-3 px-6 rounded-md hover:bg-[#f7ab0a]/80 transition-colors duration-200"
+                            >
+                                Leave a Review
+                            </button>
+                        </div>
                     </motion.div>
                 )}
             </div>
