@@ -9,6 +9,7 @@ type ReviewFormData = {
     reviewerName: string;
     reviewerRole: string;
     company: string;
+    companyUrl: string;
     reviewText: string;
     rating: number;
     projectType: string;
@@ -25,6 +26,7 @@ export default function ReviewForm({ onClose }: Props) {
         reviewerName: '',
         reviewerRole: '',
         company: '',
+        companyUrl: '',
         reviewText: '',
         rating: 0,
         projectType: '',
@@ -103,6 +105,7 @@ export default function ReviewForm({ onClose }: Props) {
             submitFormData.append('reviewerName', formData.reviewerName);
             submitFormData.append('reviewerRole', formData.reviewerRole);
             submitFormData.append('company', formData.company);
+            submitFormData.append('companyUrl', formData.companyUrl);
             submitFormData.append('reviewText', formData.reviewText);
             submitFormData.append('rating', formData.rating.toString());
             submitFormData.append('projectType', formData.projectType);
@@ -123,6 +126,7 @@ export default function ReviewForm({ onClose }: Props) {
                     reviewerName: '',
                     reviewerRole: '',
                     company: '',
+                    companyUrl: '',
                     reviewText: '',
                     rating: 0,
                     projectType: '',
@@ -253,6 +257,21 @@ export default function ReviewForm({ onClose }: Props) {
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 bg-[#393939] border border-gray-600 rounded-md text-white focus:outline-none focus:border-[#f7ab0a]"
                         placeholder="Enter company name"
+                    />
+                </div>
+
+                {/* Company URL */}
+                <div>
+                    <label className="block text-gray-300 text-sm font-medium mb-2">
+                        Company Website (Optional)
+                    </label>
+                    <input
+                        type="url"
+                        name="companyUrl"
+                        value={formData.companyUrl}
+                        onChange={handleInputChange}
+                        className="w-full px-3 py-2 bg-[#393939] border border-gray-600 rounded-md text-white focus:outline-none focus:border-[#f7ab0a]"
+                        placeholder="https://example.com"
                     />
                 </div>
 

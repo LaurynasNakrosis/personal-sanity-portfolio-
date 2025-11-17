@@ -22,6 +22,12 @@ const review = {
             description: 'Company or organization name'
         },
         {
+            name: 'companyUrl',
+            title: 'Company Website URL',
+            type: 'url',
+            description: 'Company website URL (optional)'
+        },
+        {
             name: 'reviewText',
             title: 'Review Text',
             type: 'text',

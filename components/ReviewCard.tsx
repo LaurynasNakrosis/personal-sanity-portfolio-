@@ -76,7 +76,18 @@ export default function ReviewCard({ review }: Props) {
                     )}
                     {review.company && (
                         <p className="text-gray-400 text-xs md:text-sm">
-                            {review.company}
+                            {review.companyUrl ? (
+                                <a 
+                                    href={review.companyUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-[#f7ab0a] transition-colors duration-200 underline"
+                                >
+                                    {review.company}
+                                </a>
+                            ) : (
+                                review.company
+                            )}
                         </p>
                     )}
                     {review.projectType && (

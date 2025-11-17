@@ -18,6 +18,7 @@ export interface Review extends SanityBody {
     reviewerName: string;
     reviewerRole?: string;
     company?: string;
+    companyUrl?: string;
     reviewText: string;
     rating: number;
     profileImage?: Image;

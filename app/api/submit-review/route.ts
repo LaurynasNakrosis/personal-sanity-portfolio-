@@ -105,6 +105,7 @@ export async function POST(request: NextRequest) {
         const reviewerName = formData.get('reviewerName') as string;
         const reviewerRole = formData.get('reviewerRole') as string;
         const company = formData.get('company') as string;
+        const companyUrl = formData.get('companyUrl') as string;
         const reviewText = formData.get('reviewText') as string;
         const rating = parseInt(formData.get('rating') as string);
         const projectType = formData.get('projectType') as string;
@@ -131,6 +132,12 @@ export async function POST(request: NextRequest) {
                 { error: 'Rating must be between 1 and 5' },
                 { status: 400 }
             );
+        }
+
+        // Normalize company URL if provided
+        let normalizedCompanyUrl = companyUrl || '';
+        if (normalizedCompanyUrl && !normalizedCompanyUrl.match(/^https?:\/\//i)) {
+            normalizedCompanyUrl = `https://${normalizedCompanyUrl}`;
         }
 
         // Create Sanity client with write permissions
@@ -161,6 +168,7 @@ export async function POST(request: NextRequest) {
             reviewerName,
             reviewerRole: reviewerRole || '',
             company: company || '',
+            companyUrl: normalizedCompanyUrl,
             reviewText,
             rating,
             projectType: projectType || '',
