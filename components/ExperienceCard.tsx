@@ -6,27 +6,11 @@ import { urlFor } from '../sanity/config/client-config'
 import { motion } from 'framer-motion'
 import { Experience } from '@/types/Experience'
 import Image from 'next/image'
-import { ChevronRightIcon } from '@heroicons/react/24/outline'
 
 // Defining Props type for the ExperienceCard component
 type Props = {
   experience: Experience // Expects an Experience object as prop
 }
-
-// Swipe indicator component
-const SwipeIndicator = () => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ repeat: Infinity, duration: 1.5 }}
-    className='absolute top-4 right-4 md:top-1/2 md:right-6 md:transform md:-translate-y-1/2 z-30 bg-black/20 backdrop-blur-sm px-2 py-1 md:px-3 md:py-1.5 lg:px-2 lg:py-1 rounded-full'
-  >
-    <div className='flex items-center space-x-1 text-white'>
-      <span className='text-xs md:text-sm lg:text-xs font-medium'>Swipe</span>
-      <ChevronRightIcon className='h-4 w-4 md:h-5 md:w-5 lg:h-4 lg:w-4 animate-pulse' />
-    </div>
-  </motion.div>
-)
 
 // Define the ExperienceCard component
 export default function ExperienceCard({ experience }: Props) {
@@ -37,7 +21,6 @@ export default function ExperienceCard({ experience }: Props) {
       className='flex flex-col items-center justify-center flex-shrink-0 rounded-lg space-y-3 
         w-full h-full snap-center snap-mandatory hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden relative'
     >
-      <SwipeIndicator />
       {/* Display company image if available */}
       {experience.companyImage && (
         <motion.img

@@ -4,11 +4,27 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Experience } from '@/types/Experience';
 import ExperienceCard from './ExperienceCard';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
 // Defining Props type for the WorkExperience component
 type Props = {
   experiences: Experience[]; // Expects an array of Experience objects as a prop
 }
+
+// Swipe indicator component
+const SwipeIndicator = () => (
+  <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ repeat: Infinity, duration: 1.5 }}
+    className="absolute top-4 right-4 md:top-1/2 md:right-6 md:transform md:-translate-y-1/2 z-30 bg-black/20 backdrop-blur-sm px-2 py-1 md:px-3 md:py-1.5 lg:px-2 lg:py-1 rounded-full"
+  >
+    <div className="flex items-center space-x-1 text-white">
+      <span className="text-xs md:text-sm lg:text-xs font-medium">Swipe</span>
+      <ChevronRightIcon className="h-4 w-4 md:h-5 md:w-5 lg:h-4 lg:w-4 animate-pulse" />
+    </div>
+  </motion.div>
+);
 
 // Defining WorkExperience functional component
 export default function WorkExperience({ experiences }: Props) {
@@ -28,6 +44,7 @@ export default function WorkExperience({ experiences }: Props) {
             <ExperienceCard experience={experience} />
           </div>
         ))}
+        <SwipeIndicator />
       </div>
     </motion.div>
   );
