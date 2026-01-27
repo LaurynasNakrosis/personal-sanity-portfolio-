@@ -43,10 +43,10 @@ function ContactMe({}: Props) {
 
         <div className='space-y-2'>
           {/* Display contact information */}
-          <div className='flex items-center space-x-4 sm:space-x-12 justify-center'>
+          {/*<div className='flex items-center space-x-4 sm:space-x-12 justify-center'>
             <PhoneIcon className='text-[#f7ab0a] h-5 w-5 sm:h-7 sm:w-7 animate-pulse' />
             <p className=' text-1xl sm:text-2xl'>+447774939994</p>
-          </div>
+          </div>*/}
 
           <div className='flex items-center space-x-4 sm:space-x-12 justify-center'>
             <EnvelopeIcon className='text-[#f7ab0a] h-5 w-5 sm:h-7 sm:w-7 animate-pulse'/>
