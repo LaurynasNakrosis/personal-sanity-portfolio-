@@ -2,6 +2,28 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from 'next-sanity';
 import adminConfig from '../../../sanity/config/admin-config';
 
+// Simple in-memory rate limiting (for production, use Redis or Vercel KV)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_MAX = 1; // Max 3 submissions per hour
+const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
+
+function checkRateLimit(ip: string): boolean {
+    const now = Date.now();
+    const record = rateLimitMap.get(ip);
+
+    if (!record || now > record.resetTime) {
+        rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+        return true;
+    }
+
+    if (record.count >= RATE_LIMIT_MAX) {
+        return false;
+    }
+
+    record.count++;
+    return true;
+}
+
 // Simple email sending function (you can replace with your preferred email service)
 async function sendConfirmationEmail(email: string, reviewerName: string) {
     try {
@@ -101,6 +123,18 @@ async function sendAdminNotification(reviewData: any) {
 
 export async function POST(request: NextRequest) {
     try {
+        // Rate limiting check
+        const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
+                   request.headers.get('x-real-ip') || 
+                   'unknown';
+        
+        if (!checkRateLimit(ip)) {
+            return NextResponse.json(
+                { error: 'Too many requests. Please try again later.' },
+                { status: 429 }
+            );
+        }
+
         const formData = await request.formData();
         const reviewerName = formData.get('reviewerName') as string;
         const reviewerRole = formData.get('reviewerRole') as string;
@@ -111,6 +145,44 @@ export async function POST(request: NextRequest) {
         const projectType = formData.get('projectType') as string;
         const email = formData.get('email') as string;
         const profileImage = formData.get('profileImage') as File | null;
+        
+        // Honeypot field - if filled, it's a bot
+        const honeypot = formData.get('website');
+        if (honeypot) {
+            // Silently reject - don't let bots know they were caught
+            return NextResponse.json(
+                { success: true, message: 'Review submitted successfully.' },
+                { status: 200 }
+            );
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return NextResponse.json(
+                { error: 'Invalid email address' },
+                { status: 400 }
+            );
+        }
+
+        // Basic spam detection - check for common spam patterns
+        const spamPatterns = [
+            /http[s]?:\/\//i,
+            /www\./i,
+            /\[url\]/i,
+            /<a href/i,
+        ];
+        
+        const isSpam = spamPatterns.some(pattern => 
+            pattern.test(reviewText) || pattern.test(reviewerName) || pattern.test(company)
+        );
+
+        if (isSpam) {
+            return NextResponse.json(
+                { error: 'Invalid content detected' },
+                { status: 400 }
+            );
+        }
 
         // Validation
         if (!reviewerName || !reviewText || !rating || !email) {
@@ -146,6 +218,24 @@ export async function POST(request: NextRequest) {
         // Handle profile image upload if provided
         let profileImageAsset = null;
         if (profileImage) {
+            // Validate image size (max 5MB)
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            if (profileImage.size > maxSize) {
+                return NextResponse.json(
+                    { error: 'Image size must be less than 5MB' },
+                    { status: 400 }
+                );
+            }
+
+            // Validate image type
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+            if (!allowedTypes.includes(profileImage.type)) {
+                return NextResponse.json(
+                    { error: 'Invalid image type. Only JPEG, PNG, and WebP are allowed' },
+                    { status: 400 }
+                );
+            }
+
             try {
                 // Convert file to buffer
                 const bytes = await profileImage.arrayBuffer();

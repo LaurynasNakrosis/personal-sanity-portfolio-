@@ -111,6 +111,9 @@ export default function ReviewForm({ onClose }: Props) {
             submitFormData.append('projectType', formData.projectType);
             submitFormData.append('email', formData.email);
             
+            // Honeypot field - will be empty for real users
+            submitFormData.append('website', '');
+            
             if (formData.profileImage) {
                 submitFormData.append('profileImage', formData.profileImage);
             }
@@ -179,6 +182,15 @@ export default function ReviewForm({ onClose }: Props) {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot field - hidden from users, bots will fill it */}
+                <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    style={{ position: 'absolute', left: '-9999px' }}
+                    aria-hidden="true"
+                />
                 {/* Name */}
                 <div>
                     <label className="block text-gray-300 text-sm font-medium mb-2">
