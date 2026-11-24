@@ -74,7 +74,7 @@ function Projects({projects}: Props) {
                         <div className='text-center'>
                             <a href={project.linkToBuild} target='_blank' rel='noopener noreferrer'
                                className='text-xs sm:text-sm text-[#F7AB0A] underline underline-offset-4 hover:opacity-80'>
-                                View project
+                                {project.linkToBuild.includes('github.com') ? 'View code on GitHub' : 'View project'}
                             </a>
                         </div>
                     )}
