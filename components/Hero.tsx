@@ -63,7 +63,8 @@ export default function Hero() {
         </h2>
 
         <h1 className='font-semibold px-10 text-xs md:text-4xl lg:text-5xl py-1'>
-          <span className='mr-3'>{text}</span>
+          <span className='sr-only'>Laurynas Nakrosis, Full Stack Developer: </span>
+          <span className='mr-3' aria-hidden='true'>{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
 
@@ -83,6 +84,11 @@ export default function Hero() {
           <Link href="#reviews">
             <button className='heroButton'>Reviews</button>
           </Link>
+        </div>
+
+        <div className='pt-4 flex flex-row gap-4 justify-center text-xs sm:text-sm text-gray-400 z-20'>
+          <a href='https://github.com/LaurynasNakrosis' target='_blank' rel='noopener noreferrer' className='underline-offset-4 hover:text-[#F7AB0A] hover:underline'>GitHub</a>
+          <a href='https://www.linkedin.com/in/laurynas-nakrosis/' target='_blank' rel='noopener noreferrer' className='underline-offset-4 hover:text-[#F7AB0A] hover:underline'>LinkedIn</a>
         </div>
   </div>
       

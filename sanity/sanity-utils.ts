@@ -20,7 +20,7 @@ export async function getProjects(): Promise<Project[]>{
             "slug": slug.current,
             image,
             summary,
-            url,
+            linkToBuild,
             technologies[]->
         }`,
         {},
