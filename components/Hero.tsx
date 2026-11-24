@@ -53,8 +53,9 @@ export default function Hero() {
         <Image 
           className="  h-20 w-20 sm:h-32 sm:w-32 md:h-40 md:w-40  rounded-full mx-auto  my-auto  object-cover  "
           src={hero}
-          alt='Picture of the author'
-          priority 
+          alt='Laurynas Nakrosis'
+          priority
+          unoptimized 
         /> 
       </div>
       <div className=' z-20'>
