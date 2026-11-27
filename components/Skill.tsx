@@ -29,6 +29,8 @@ function Skill({skill, directionLeft }: Props) {
         whileInView={{ opacity: 10, x: 0}}
         // Source URL for the image
         src={urlFor(skill?.image)?.url()}
+        alt={skill.title}
+        title={skill.title}
         
         // CSS classes for styling
         className='rounded-full flex border-gray-500 object-cover w-11 h-11  md:w-16 md:h-16 xl:w-20 xl:h-20 filter group-hover:grayscale transition duration-300 ease-in-out'

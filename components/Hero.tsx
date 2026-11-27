@@ -12,32 +12,11 @@ type Props = {}
 export default function Hero() {
   const [text,count] = useTypewriter({
     words: [
-      "Hi, The Name's Laurynas Nakrosis",
-      "React.useState('Innovation')",
-      "export default AwesomeDeveloper",      
-      "Problem Solver",
-      "<ButLovesToCodeMore />",
-      "Creative Coder",
-      "<CodeWithPassion />",
-      "Tech Enthusiast",
-      "console.log('Hello World!')",
-      "Building Amazing Apps",
-      "const developer = 'awesome'",
-      "Turning Ideas Into Reality",
-      "function createAmazing() { }",
-      "Passionate About Code",
-      "npm install creativity",
-      "Always Learning",
-      "git commit -m 'Building the future'",
-      "Innovation Driven",
-      "while(alive) { code() }",
-      "User Experience Focused",
-      "const coffee = 'essential'",
-      "Clean Code Advocate",
-      "async function solveProblems() { }",
-      "Modern Web Developer",
-      "const bugs = 'features'",
-      "Guy-who-loves-Coffee.tsx", 
+      "Hi, I'm Laurynas Nakrosis",
+      "Frontend / Full-Stack Developer",
+      "React · TypeScript · Next.js · Node.js",
+      "I build web apps businesses run on",
+      "Open to permanent roles in London & remote UK",
     ],
     loop: true,
     delaySpeed: 3000,
@@ -53,8 +32,9 @@ export default function Hero() {
         <Image 
           className="  h-20 w-20 sm:h-32 sm:w-32 md:h-40 md:w-40  rounded-full mx-auto  my-auto  object-cover  "
           src={hero}
-          alt='Picture of the author'
-          priority 
+          alt='Laurynas Nakrosis'
+          priority
+          unoptimized 
         /> 
       </div>
       <div className=' z-20'>
@@ -63,7 +43,8 @@ export default function Hero() {
         </h2>
 
         <h1 className='font-semibold px-10 text-xs md:text-4xl lg:text-5xl py-1'>
-          <span className='mr-3'>{text}</span>
+          <span className='sr-only'>Laurynas Nakrosis, Full Stack Developer: </span>
+          <span className='mr-3' aria-hidden='true'>{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
 
@@ -83,6 +64,12 @@ export default function Hero() {
           <Link href="#reviews">
             <button className='heroButton'>Reviews</button>
           </Link>
+        </div>
+
+        <div className='pt-4 flex flex-row gap-4 justify-center text-xs sm:text-sm text-gray-400 z-20'>
+          <a href='https://github.com/LaurynasNakrosis' target='_blank' rel='noopener noreferrer' className='underline-offset-4 hover:text-[#F7AB0A] hover:underline'>GitHub</a>
+          <a href='https://www.linkedin.com/in/laurynas-nakrosis/' target='_blank' rel='noopener noreferrer' className='underline-offset-4 hover:text-[#F7AB0A] hover:underline'>LinkedIn</a>
+          <a href='/Laurynas_Nakrosis_CV.pdf' target='_blank' rel='noopener noreferrer' className='underline-offset-4 hover:text-[#F7AB0A] hover:underline'>Download CV</a>
         </div>
   </div>
       

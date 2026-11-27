@@ -46,7 +46,7 @@ function Projects({projects}: Props) {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2 }}             
                         src={project?.image ? urlFor(project.image).url() : ''}
-                        alt="" />
+                        alt={project?.title ? `${project.title} screenshot` : ''} />
                 <div className='space-y-2 max-w-6xl'>
                     <h4 className='text-sm md:text-lg font-semibold text-center px-2'>
                         <span className='text-xs md:text-base'>Case study {i + 1} of {projects?.length}: </span> {" "}
@@ -58,7 +58,7 @@ function Projects({projects}: Props) {
                             {technology.image && (
                                 <Image
                                         src={urlFor(technology?.image)?.url()}
-                                    alt={technology.slug}
+                                    alt={technology.title}
                                     width={10}
                                     height={10}
                                         className='w-6 h-6 sm:w-8 sm:h-8 rounded-full'
@@ -70,6 +70,14 @@ function Projects({projects}: Props) {
                     <div className='max-h-[100px] md:max-h-[150px] overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
                         <p className='text-[11px] sm:text-[14px] m-3 pb-3 text-left'>{project?.summary}</p>
                     </div>
+                    {project?.linkToBuild && (
+                        <div className='text-center'>
+                            <a href={project.linkToBuild} target='_blank' rel='noopener noreferrer'
+                               className='text-xs sm:text-sm text-[#F7AB0A] underline underline-offset-4 hover:opacity-80'>
+                                {project.linkToBuild.includes('github.com') ? 'View code on GitHub' : 'View project'}
+                            </a>
+                        </div>
+                    )}
                 </div>
                 </div>
             ))}

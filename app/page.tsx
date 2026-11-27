@@ -89,7 +89,7 @@ export default async function Home() {
           <Image 
           className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
           src={MyLogo} 
-          alt="" />
+          alt="Back to top" />
         </Link>
           <p className=" text-gray-500 text-[10px]">Home</p>
         </div>

@@ -33,7 +33,7 @@ export default function ExperienceCard({ experience }: Props) {
           //viewport={{ once: true }}
           className='hidden md:block rounded-full h-18 w-18 max-w-[100px] max-h-[100px] object-cover object-center'
           src={urlFor(experience?.companyImage).url()} // Constructing URL for the image
-          alt=''
+          alt={experience.company ? `${experience.company} logo` : ''}
         />
       )}
 
@@ -53,7 +53,7 @@ export default function ExperienceCard({ experience }: Props) {
               {technology.image && (
                 <Image
                   src={urlFor(technology?.image)?.url()}
-                  alt={technology.slug}
+                  alt={technology.title}
                   width={10}
                   height={10}
                   className='w-4 h-4 md:w-10 md:h-10 rounded-full'

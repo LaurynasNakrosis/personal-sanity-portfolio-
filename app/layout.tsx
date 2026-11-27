@@ -17,14 +17,17 @@ const jsonLd = {
     "@type": "Person",
     "name": "Laurynas Nakrosis",
     "jobTitle": "Full Stack Developer",
-    "url": "https://www.laurynasnakrosis.com"
+    "url": "https://www.laurynasnakrosis.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/laurynas-nakrosis/",
+      "https://github.com/LaurynasNakrosis"
+    ]
   }
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#000000' },
@@ -68,7 +71,6 @@ export const metadata: Metadata = {
     title: "Laurynas Nakrosis | Full Stack Developer Portfolio",
     description: "Laurynas Nakrosis - Full-stack developer specializing in React, Next.js, and TypeScript. View my projects, skills, and experience in web development.",
     images: ['https://www.laurynasnakrosis.com/MyLogoGold.jpg'],
-    creator: '@your_twitter_handle',
   },
   robots: {
     index: true,
